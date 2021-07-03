@@ -1,0 +1,45 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '10.0'
+
+
+def common_pods_for_target
+
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # to enable hermes on iOS, change `false` to `true` and then install pods
+    :hermes_enabled => false
+  )
+
+end
+
+
+target 'OTOZ_Template'  do
+  common_pods_for_target
+
+  target 'OTOZ_TemplateTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+end
+
+target 'OTOZ_Staging' do
+  common_pods_for_target
+
+
+ end
+
+target 'OTOZ_Production' do
+  common_pods_for_target
+
+
+ end
+
+use_flipper!()
+post_install do |installer|
+   react_native_post_install(installer)
+
+end
