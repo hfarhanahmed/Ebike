@@ -1,16 +1,7 @@
-import { EbikeColors, DefaultColors } from './Colors';
+import { DefaultColors } from './Colors';
 import { FontSizes } from './FontSize';
 import { styles } from './Styles';
 import { Margins } from './Margins';
-
-const EbikeTheme = {
-  name: 'Ebike',
-  colors: EbikeColors,
-  fontSizes: FontSizes,
-  styles: styles,
-  margins: Margins,
-};
-
 
 const DefaultTheme = {
   name: 'Default',
@@ -22,7 +13,7 @@ const DefaultTheme = {
 
 export function getTheme(theme) {
   if (theme === 'Ebike') {
-    return EbikeTheme;
+    return DefaultTheme;
   } else {
     return DefaultTheme;
   }

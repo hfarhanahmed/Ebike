@@ -1,12 +1,11 @@
 const axios = require('axios');
-const BaseUrl = 'https://fair-dev.otoz.biz/api/';
+const BaseUrl = 'https://45459224-27db-4c10-8958-d7e4fab2a75f.mock.pstmn.io/';
 const Token = '';
 import getErrorMessage from './ServerErrorHandler';
 
 const config = {
   headers: {
     Authorization: 'Bearer ' + Token,
-    // tenantId: 'drivemate',
   },
 };
 
@@ -16,14 +15,10 @@ export function getAPICall(apiSubUrl) {
       .get(BaseUrl + apiSubUrl, config)
       .then(function (response) {
         // handle success
-        console.log(BaseUrl + apiSubUrl, config);
-        console.log('response getAPICall ', response);
-        success(response);
+        success(response.data);
       })
       .catch(function (error) {
         // handle error
-        console.log(BaseUrl + apiSubUrl, config);
-        console.log('error getAPICall', error);
         failure({
           status: error.response.status,
           message: getErrorMessage(error),

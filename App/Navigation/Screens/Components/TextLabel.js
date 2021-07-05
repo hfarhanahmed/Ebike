@@ -16,6 +16,7 @@ function TextLabel(props) {
       style={{
         ...style.textLabel,
         fontWeight: props.fontWeight,
+        fontSize: props.fontSize,
       }}
       numberOfLines={props.numberOfLines}
       ellipsizeMode='tail'

@@ -16,12 +16,12 @@ function TextLabel(props) {
       style={{
         color: theme.colors.primary,
         fontSize: theme.fontSizes.priceSize,
-        fontWeight: props.fontWeight,
+        fontWeight: 'bold',
       }}
       numberOfLines={1}
       ellipsizeMode='tail'
     >
-      {props.text}
+      ${props.text}.00
     </Text>
   );
 }

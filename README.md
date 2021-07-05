@@ -1,17 +1,17 @@
+````bash
 # Introduction
 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
 
 ### Before you start
 
-# OTOZ
+# Ebike
 
-- Read our [**Style Guide**](https://netsoltech.visualstudio.com/OTOZ/_git/otoz-react-native/commit/c2dbb59bd20d3e9af5383461dc4f0c725d54c83d/?_a=contents&path=/Javascript-style-guide.md)
 - DO NOT use ~~**NPM**~~, We use [**Yarn**](https://yarnpkg.com/en/docs/getting-started)
 
 ## Prerequisites
 
--------------
+---
 
 - [**Android Studio**](https://developer.android.com/studio)
 - [**Xcode**](https://itunes.apple.com/my/app/xcode/id497799835?mt=12) + [**CocoaPods**](https://guides.cocoapods.org/using/getting-started.html)
@@ -22,7 +22,6 @@ TODO: Give a short introduction of your project. Let this section explain the ob
 
 To init the project, run the following commands:
 
-```bash
 # install dependencies
 yarn
 
@@ -47,7 +46,7 @@ yarn deepclean
 yarn generate:apk
 
 # Project Structure
-|-- OTOZ
+|-- Ebike
     |-- README.md
     |-- Javascript-style-guide
     |-- package.json
@@ -60,7 +59,7 @@ yarn generate:apk
 	      |--Manifest
 	      |--Middleware (Network call related - e.g logging)
         |-- external (URLS - webdomain)
-        |-- Hooks (Custom hooks) 
+        |-- Hooks (Custom hooks)
         |-- Models (Filter screen)
         |-- Services (AXIO)
         |-- Navigation
@@ -90,7 +89,7 @@ yarn start --help
 yarn android --help
 
 yarn ios --help
-```
+````
 
 ## Provisioning Profile
 

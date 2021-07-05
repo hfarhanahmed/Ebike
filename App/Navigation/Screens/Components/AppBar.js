@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { TouchableOpacity, View, Text } from 'react-native';
+import { Appbar } from 'react-native-paper';
 import { useTheme } from '../../../customHook/ThemeContext';
 
 // const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
@@ -24,16 +24,16 @@ const AppBar = (props) => {
   }
   return (
     /* TODO:@Farhan Check this primary color undefined error,temporarily hard coded red color because This PR dedicated for Merge conflits issue */
-    <View style={{ backgroundColor: theme.colors.primary }}>
+    <Appbar.Header style={{ backgroundColor: theme.colors.primary }}>
       {options.isBackEnable && (
-        <TouchableOpacity
+        <Appbar.BackAction
           onPress={() => {
             navigation.popToTop();
           }}
         />
       )}
-      <Text subtitle={options.subtitle} >{options.title}</Text>
-    </View>
+      <Appbar.Content title={options.title} subtitle={options.subtitle} />
+    </Appbar.Header>
   );
 };
 

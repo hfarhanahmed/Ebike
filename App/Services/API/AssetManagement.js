@@ -1,16 +1,13 @@
-import {getAPICall} from './axiosWrapper';
+import { getAPICall } from './axiosWrapper';
 
-//inventory-management/get-vehicle/
-export function loginWithEmail(assetId) {
+export function getBikes(category) {
   return new Promise((success, failure) => {
-    getAPICall(
-      'inventory-management/get-vehicle/' + assetId,
-      (response) => {
+    getAPICall('search/' + category)
+      .then((response) => {
         success(response);
-      },
-      (message) => {
+      })
+      .catch((message) => {
         failure(message);
-      },
-    );
+      });
   });
 }
