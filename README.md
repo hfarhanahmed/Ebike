@@ -1,4 +1,3 @@
-````bash
 # Introduction
 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
@@ -22,6 +21,7 @@ TODO: Give a short introduction of your project. Let this section explain the ob
 
 To init the project, run the following commands:
 
+````bash
 # install dependencies
 yarn
 
