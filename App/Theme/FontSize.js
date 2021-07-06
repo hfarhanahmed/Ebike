@@ -1,7 +1,7 @@
 export const FontSizes = {
   fontName: 'Arial',
   BigPriceFont: 20,
-  SearchCarTitleFont: 18,
+  SearchCarTitleFont: 16,
   HeadingText: 32,
   LoginSubHeading: 14,
   LabelText: 14,

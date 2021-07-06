@@ -17,10 +17,10 @@ def common_pods_for_target
 end
 
 
-target 'OTOZ_Template'  do
+target 'Ebike'  do
   common_pods_for_target
 
-  target 'OTOZ_TemplateTests' do
+  target 'EbikeTests' do
     inherit! :complete
     # Pods for testing
   end

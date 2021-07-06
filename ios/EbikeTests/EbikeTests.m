@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface OTOZ_TemplateTests : XCTestCase
+@interface EbikeTests : XCTestCase
 
 @end
 
-@implementation OTOZ_TemplateTests
+@implementation EbikeTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

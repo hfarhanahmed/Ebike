@@ -1,4 +1,4 @@
-package com.otoz_template;
+package com.ebike;
 
 import android.content.Intent;
 import android.os.Bundle;

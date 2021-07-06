@@ -3,13 +3,16 @@ import { FlatList } from 'react-native';
 import SearchCarItem from './Components/SearchCarItem';
 import { getBikes } from '../../Services/API/AssetManagement';
 import { useTheme } from '../../customHook/ThemeContext';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SearchList() {
   const [assets, setAssets] = useState([]);
   const { theme } = useTheme();
 
+  const navigation = useNavigation();
+
   useEffect(() => {
-    getBikes('mountainbike')
+    getBikes('')
       .then((response) => {
         setAssets(response);
       })
@@ -21,7 +24,14 @@ export default function SearchList() {
       style={{ margin: theme.margins.ListMargin }}
       data={assets}
       keyExtractor={(item) => item._id}
-      renderItem={(asset) => <SearchCarItem asset={asset.item} />}
+      renderItem={(asset) => (
+        <SearchCarItem
+          asset={asset.item}
+          onPress={(asset) => {
+            navigation.navigate('Details', { ...asset });
+          }}
+        />
+      )}
     />
   );
 }

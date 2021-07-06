@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import SearchScreen from '../Screens/SearchScreen';
-import Settings from '../Screens/Settings';
+import Details from '../Screens/BikeDetails';
 import { useTheme } from '../../customHook/ThemeContext';
 import AppBar from '../Screens/Components/AppBar';
 
@@ -28,8 +28,8 @@ export default function container() {
         />
         <Stack.Screen
           name='Details'
-          component={Settings}
-          options={{ title: 'Car Details', isBackEnable: true }}
+          component={Details}
+          options={{ title: 'Bike Details', isBackEnable: true }}
         />
       </Stack.Navigator>
     </NavigationContainer>

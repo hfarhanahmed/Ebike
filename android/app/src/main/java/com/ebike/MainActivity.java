@@ -1,4 +1,4 @@
-package com.otoz_template;
+package com.ebike;
 
 import android.os.Bundle;
 
@@ -14,7 +14,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "OTOZ_Template";
+    return "Ebike";
   }
 
   @Override

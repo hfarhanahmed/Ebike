@@ -32,15 +32,33 @@ const SearchCarItem = (props) => {
   });
 
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      activeOpacity={0.85}
+      onPress={() => {
+        props.onPress(props.asset);
+      }}
+    >
       <View style={styles.mainView}>
-        <Image style={styles.carImage} source={{ uri: props.asset.image }} />
+        <Image
+          style={styles.carImage}
+          source={{
+            uri:
+              props.asset.image && props.asset.image.length > 0
+                ? props.asset.image[0]
+                : '',
+          }}
+        />
         <View style={styles.contentContainer}>
           <View style={{ flex: 1 }}>
             <TextLabel
               fontSize={theme.fontSizes.SearchCarTitleFont}
               fontWeight='bold'
               text={props.asset.category}
+            />
+            <TextLabel
+              fontSize={theme.fontSizes.SearchCarTitleFont}
+              fontWeight='normal'
+              text={props.asset.name}
             />
           </View>
           <View style={{ alignItems: 'flex-end' }}>
@@ -51,7 +69,7 @@ const SearchCarItem = (props) => {
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text>
                 <TextLabel
-                  fontSize={theme.fontSizes.LabelText}
+                  fontSize={theme.fontSizes.SearchCarTitleFont}
                   fontWeight='bold'
                   text='Frame '
                 />

@@ -5,7 +5,8 @@ import config from 'react-native-config';
 import ThemeContext from '../../customHook/ThemeContext';
 // import Map from './Components/Map';
 
-export default function Settings() {
+export default function BikeDetails(props) {
+  console.log(props.route.params);
   return (
     <ThemeContext.Consumer>
       {(context) => (
