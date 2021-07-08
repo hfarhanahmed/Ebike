@@ -47,7 +47,7 @@ yarn clean:all
 yarn deepclean
 
 ## Generating standalone applications
-You need to have expo account for generating apk or ipa file (https://docs.expo.io/distribution/building-standalone-apps/)
+You need to have expo account to generate apk or ipa file (https://docs.expo.io/distribution/building-standalone-apps/)
 
 # Generate APK for Android
 expo build:android -t apk
@@ -56,7 +56,7 @@ expo build:android -t apk
 expo build:ios -t simulator
 
 # Project Structure
-|-- Ebike
+|-- EelectricBikes
     |-- README.md
     |-- Javascript-style-guide
     |-- package.json
