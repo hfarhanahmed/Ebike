@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { useTheme } from '../../../customHook/ThemeContext';
+import {Text} from 'react-native';
+import {useTheme} from '../../../customHook/ThemeContext';
 
 /*
   *   This is a simple Text Label to show the price whereever needed
@@ -10,17 +10,16 @@ import { useTheme } from '../../../customHook/ThemeContext';
 */
 
 function TextLabel(props) {
-  const { theme } = useTheme();
+  const {theme} = useTheme();
   return (
     <Text
       style={{
         color: theme.colors.primary,
-        fontSize: theme.fontSizes.priceSize,
+        fontSize: props.fontSize,
         fontWeight: 'bold',
       }}
       numberOfLines={1}
-      ellipsizeMode='tail'
-    >
+      ellipsizeMode="tail">
       ${props.text}.00
     </Text>
   );

@@ -15,25 +15,27 @@ import {useTheme} from '../../../customHook/ThemeContext';
       - subtitle
  */
 
-const AppBar = props => {
+const AppBarWithMenu = props => {
   const {theme} = useTheme();
   const navigation = useNavigation();
-  const options = props.scene.descriptor.options;
-  if (options.headerShown === false) {
-    return <></>;
-  }
   return (
     <Appbar.Header style={{backgroundColor: theme.colors.primary}}>
-      {options.isBackEnable && (
+      {props.isBackEnable && (
         <Appbar.BackAction
           onPress={() => {
             navigation.popToTop();
           }}
         />
       )}
-      <Appbar.Content title={options.title} subtitle={options.subtitle} />
+      <Appbar.Content title={props.title} subtitle={props.subtitle} />
+      <Appbar.Action
+        icon="filter"
+        onPress={() => {
+          props.onActionPress();
+        }}
+      />
     </Appbar.Header>
   );
 };
 
-export default AppBar;
+export default AppBarWithMenu;

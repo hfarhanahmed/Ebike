@@ -1,7 +1,7 @@
-import { DefaultColors } from './Colors';
-import { FontSizes } from './FontSize';
-import { styles } from './Styles';
-import { Margins } from './Margins';
+import {DefaultColors} from './Colors';
+import {FontSizes} from './FontSize';
+import {styles} from './Styles';
+import {Margins} from './Margins';
 
 const DefaultTheme = {
   name: 'Default',

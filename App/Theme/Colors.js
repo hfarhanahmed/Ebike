@@ -12,7 +12,7 @@ export const DefaultColors = {
   // Custom Colors
   textColorPrimary: '#DF5151', // TODO: Update color later
   textColorSecondary: '#ECECEC', // TODO: Update color later
-  accent: '#2e2e2e',
+  accent: '#000000',
   white: '#FFFFFF',
   battleShipGrayColor: '#848482',
   black: '#000000',

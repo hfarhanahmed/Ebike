@@ -1,7 +1,7 @@
-import { useTheme } from '../customHook/ThemeContext';
+import {useTheme} from '../customHook/ThemeContext';
 
 export function styles() {
-  const { theme } = useTheme();
+  const {theme} = useTheme();
   return {
     bottomButton: {
       alignItems: 'center',

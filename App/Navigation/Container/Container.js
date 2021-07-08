@@ -1,35 +1,33 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import SearchScreen from '../Screens/SearchScreen';
 import Details from '../Screens/BikeDetails';
-import { useTheme } from '../../customHook/ThemeContext';
+import {useTheme} from '../../customHook/ThemeContext';
 import AppBar from '../Screens/Components/AppBar';
 
 const Stack = createStackNavigator();
 
-export default function container() {
-  const { theme } = useTheme();
+export default function Container() {
+  const {theme} = useTheme();
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
         screenOptions={{
-          header: (props) => <AppBar {...props} />,
-        }}
-      >
+          header: props => <AppBar {...props} />,
+        }}>
         <Stack.Screen
-          name='MainActivity'
+          name="MainActivity"
           component={SearchScreen}
           options={{
-            title: 'Ebike',
-            subtitle: 'The Future of mobility',
+            headerShown: false,
           }}
         />
         <Stack.Screen
-          name='Details'
+          name="Details"
           component={Details}
-          options={{ title: 'Bike Details', isBackEnable: true }}
+          options={{title: 'Bike Details', isBackEnable: true}}
         />
       </Stack.Navigator>
     </NavigationContainer>

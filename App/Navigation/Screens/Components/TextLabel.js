@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { useTheme } from '../../../customHook/ThemeContext';
+import {Text} from 'react-native';
+import {useTheme} from '../../../customHook/ThemeContext';
 /*
   *   This is a simple Text Label with an icon on the left that will be used in many screens
   *   Component Props:
@@ -9,18 +9,18 @@ import { useTheme } from '../../../customHook/ThemeContext';
         - numberOfLines (if text is more than 1 line and you want to limit it to 1 line or n lines)
 */
 function TextLabel(props) {
-  const { theme } = useTheme();
+  const {theme} = useTheme();
   const style = theme.styles();
   return (
     <Text
       style={{
+        ...props.style,
         ...style.textLabel,
         fontWeight: props.fontWeight,
         fontSize: props.fontSize,
       }}
       numberOfLines={props.numberOfLines}
-      ellipsizeMode='tail'
-    >
+      ellipsizeMode="tail">
       {props.text}
     </Text>
   );

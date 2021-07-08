@@ -1,15 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
-import { useTheme } from '../../../customHook/ThemeContext';
+import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
+import {useTheme} from '../../../customHook/ThemeContext';
 import TextLabel from './TextLabel';
 import PriceText from './PriceText';
 
-const SearchCarItem = (props) => {
-  const { theme } = useTheme();
+const SearchCarItem = props => {
+  const {theme} = useTheme();
 
   const styles = StyleSheet.create({
     mainView: {
-      marginTop: 12,
+      marginTop: 6,
+      marginBottom: 6,
       flex: 1,
       flexDirection: 'column',
       borderRadius: theme.margins.CardBorderRadius,
@@ -36,8 +37,7 @@ const SearchCarItem = (props) => {
       activeOpacity={0.85}
       onPress={() => {
         props.onPress(props.asset);
-      }}
-    >
+      }}>
       <View style={styles.mainView}>
         <Image
           style={styles.carImage}
@@ -49,29 +49,32 @@ const SearchCarItem = (props) => {
           }}
         />
         <View style={styles.contentContainer}>
-          <View style={{ flex: 1 }}>
+          <View style={{flex: 1}}>
             <TextLabel
               fontSize={theme.fontSizes.SearchCarTitleFont}
-              fontWeight='bold'
+              fontWeight="bold"
               text={props.asset.category}
             />
             <TextLabel
               fontSize={theme.fontSizes.SearchCarTitleFont}
-              fontWeight='normal'
+              fontWeight="normal"
               text={props.asset.name}
             />
           </View>
-          <View style={{ alignItems: 'flex-end' }}>
-            <View style={{ flexDirection: 'row' }}>
-              <PriceText text={props.asset.price} />
+          <View style={{alignItems: 'flex-end'}}>
+            <View style={{flexDirection: 'row'}}>
+              <PriceText
+                text={props.asset.price}
+                fontSize={theme.fontSizes.priceSize}
+              />
             </View>
 
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Text>
                 <TextLabel
                   fontSize={theme.fontSizes.SearchCarTitleFont}
-                  fontWeight='bold'
-                  text='Frame '
+                  fontWeight="bold"
+                  text="Frame "
                 />
                 {props.asset.frameSize}
               </Text>
