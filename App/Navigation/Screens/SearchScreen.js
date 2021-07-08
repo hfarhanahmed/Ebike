@@ -7,10 +7,12 @@ import AppBarWithMenu from './Components/AppBarWithMenu';
 import {getBikes} from '../../Services/API/AssetManagement';
 import {useTheme} from '../../customHook/ThemeContext';
 import Filters from './Components/Filters';
+import ActivityIndicatorView from './Components/ActivityIndicatorView';
 
 export default function SearchList() {
   const [assets, setAssets] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
+  const [activityIndicator, setActivityIndicator] = useState(false);
   const [filters, setFilters] = useState({
     category: {name: 'All', code: 'all'},
     frame: 'All',
@@ -21,6 +23,7 @@ export default function SearchList() {
   const navigation = useNavigation();
 
   const getBikesList = () => {
+    setActivityIndicator(true);
     getBikes(filters.category.code)
       .then(response => {
         /* 
@@ -45,8 +48,12 @@ export default function SearchList() {
           );
           setAssets(filteredAssets);
         }
+        setActivityIndicator(false);
       })
-      .catch(error => console.log('Error', error));
+      .catch(error => {
+        console.log('Error', error);
+        setActivityIndicator(false);
+    });
   };
 
   useEffect(() => {
@@ -55,6 +62,7 @@ export default function SearchList() {
 
   return (
     <View>
+      <ActivityIndicatorView showIndicator={activityIndicator} />
       <AppBarWithMenu
         title="Ebike"
         subtitle="The Future of mobility"
