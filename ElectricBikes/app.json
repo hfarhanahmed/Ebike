@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "ElectricBikes",
+    "slug": "ElectricBikes",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "background": "#FFFFFF"
+    }
+  },
+  "name": "ElectricBikes"
+}
