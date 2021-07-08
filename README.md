@@ -15,6 +15,7 @@ TODO: Give a short introduction of your project. Let this section explain the ob
 - [**Android Studio**](https://developer.android.com/studio)
 - [**Xcode**](https://itunes.apple.com/my/app/xcode/id497799835?mt=12) + [**CocoaPods**](https://guides.cocoapods.org/using/getting-started.html)
 - [**Yarn**](https://yarnpkg.com/lang/en/docs/install/)
+- [**EXPO CLI**](https://docs.expo.io/get-started/installation/)
 - **Node.js v8.+ LTS** recommend using [**NVM**](https://github.com/creationix/nvm#installation-and-update) | direct [download](https://nodejs.org/dist/v12.16.3/node-v12.16.3.pkg)
 
 ## Getting started
@@ -25,9 +26,12 @@ To init the project, run the following commands:
 # install dependencies
 yarn
 
-yarn ios (Run on iOS)
+# Run Expo Server
+expo start (Runs the Expo server)
 
-yarn android (Run on Android)
+# Run on IOS or Android
+After your Expo Server will run successfull you will see the instructions to run app on IOS or Android
+
 
 ## Special Scripts execute with one command
 # Clean iOS Project
@@ -42,8 +46,14 @@ yarn clean:all
 # Deep Clean for whole project
 yarn deepclean
 
-# Generate debug APK for Android
-yarn generate:apk
+## Generating standalone applications
+You need to have expo account for generating apk or ipa file (https://docs.expo.io/distribution/building-standalone-apps/)
+
+# Generate APK for Android
+expo build:android -t apk
+
+# Generate IPA for IOS
+expo build:ios -t simulator
 
 # Project Structure
 |-- Ebike
@@ -71,9 +81,6 @@ yarn generate:apk
 			  |-- Components
             |-- Navigation Container
         |-- Themes
-		|-- Fonts/Icons/Styles
-        |-- Translation
-		|-- EN/FR/DE
         |-- User
         |-- Utils
 	|-- Views
@@ -90,6 +97,7 @@ yarn android --help
 
 yarn ios --help
 ````
+
 
 ## Provisioning Profile
 

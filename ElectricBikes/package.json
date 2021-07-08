@@ -4,7 +4,11 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
-    "start": "react-native start"
+    "start": "react-native start",
+    "clean:android": "rm -rf android/build",
+    "clean:ios": "rm -rf ios/build && rm -rf ios/pods",
+    "clean:all": "rm -rf node_modules && rm -rf yarn.lock  && yarn cache clean && killall node",
+    "deepclean": "watchman watch-del-all && rm -rf node_modules && rm -rf $TMPDIR/haste-map-* && rm -rf $TMPDIR/metro-* && rm -rf $TMPDIR/react-* && yarn cache clean && rm -rf yarn.lock && rm -rf ios/build && rm -rf ios/pods"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.0",
