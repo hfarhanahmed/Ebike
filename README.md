@@ -64,36 +64,38 @@ expo build:ios -t simulator
 # Project Structure
 ````bash
 # Project Structure
-|-- EelectricBikes
+|-- Ebike
     |-- README.md
     |-- Javascript-style-guide
-    |-- package.json
-    |-- App
-        |-- Config
-        |-- Constants
-        |-- Data
-              |--Local (Storage)
-	      |--Remote (Endpoints/S3)
-	      |--Manifest
-	      |--Middleware (Network call related - e.g logging)
-        |-- external (URLS - webdomain)
-        |-- Hooks (Custom hooks)
-        |-- Models (Filter screen)
-        |-- Services (AXIO)
-        |-- Navigation
-            |-- Components
-            |-- Contexts
-            |-- Screens
-		    |-- Generic Components (reuseable across different screens)
-		    |-- Listing / Search
-			  |-- Components
-            |-- Navigation Container
-        |-- Themes
-        |-- User
-        |-- Utils
-	|-- Views
-            |-- Shadow Views(Any Custom view)
-	    |-- Webviews
+    |-- test-guide
+    |-- EelectricBikes
+        |-- package.json
+        |-- App
+            |-- Config
+            |-- Constants
+            |-- Data
+                  |--Local (Storage)
+              |--Remote (Endpoints/S3)
+              |--Manifest
+              |--Middleware (Network call related - e.g logging)
+            |-- external (URLS - webdomain)
+            |-- Hooks (Custom hooks)
+            |-- Models (Filter screen)
+            |-- Services (AXIO)
+            |-- Navigation
+                |-- Components
+                |-- Contexts
+                |-- Screens
+                |-- Generic Components (reuseable across different screens)
+                |-- Listing / Search
+                  |-- Components
+                |-- Navigation Container
+            |-- Themes
+            |-- User
+            |-- Utils
+        |-- Views
+                |-- Shadow Views(Any Custom view)
+            |-- Webviews
 
 
 # More information on CLI
