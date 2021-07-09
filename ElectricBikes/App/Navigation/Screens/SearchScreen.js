@@ -83,9 +83,10 @@ export default function SearchList() {
       />
       <FlatList
         style={{
-          margin: theme.margins.ListMargin,
+          padding: theme.margins.ListMargin,
         }}
         data={assets}
+        initialNumToRender={7}
         keyExtractor={(item) => item._id}
         renderItem={(asset) => (
           <SearchCarItem

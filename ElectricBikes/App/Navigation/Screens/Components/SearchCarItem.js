@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Image } from 'react-native';
+import { Card } from 'react-native-paper';
 import TextLabel from './TextLabel';
 import PriceText from './PriceText';
 import { getTheme } from '../../../Theme';
@@ -14,7 +15,6 @@ const SearchCarItem = (props) => {
       flex: 1,
       flexDirection: 'column',
       borderRadius: theme.margins.CardBorderRadius,
-      overflow: 'hidden',
       elevation: theme.margins.CardElevation,
       backgroundColor: theme.colors.white,
       borderColor: theme.colors.white,
@@ -33,13 +33,14 @@ const SearchCarItem = (props) => {
   });
 
   return (
-    <TouchableOpacity
-      activeOpacity={0.85}
+    <Card
+      style={styles.mainView}
+      elevation={theme.margins.CardElevation}
       onPress={() => {
         props.onPress(props.asset);
       }}
     >
-      <View style={styles.mainView}>
+      <View>
         <Image
           style={styles.carImage}
           source={{
@@ -83,7 +84,7 @@ const SearchCarItem = (props) => {
           </View>
         </View>
       </View>
-    </TouchableOpacity>
+    </Card>
   );
 };
 
