@@ -1,7 +1,6 @@
 import React from 'react';
-import {TouchableOpacity, Text} from 'react-native';
-// import {useTheme} from '../../../customHook/ThemeContext';
-import {getTheme} from '../../../Theme';
+import { TouchableOpacity, Text } from 'react-native';
+import { getTheme } from '../../../Theme';
 
 /*
   *   This is a simple Button with primary theme color
@@ -25,13 +24,15 @@ function BottomButton(props) {
         backgroundColor: theme.colors.buttonPrimary,
         borderRadius: 2,
         padding: 15,
-      }}>
+      }}
+    >
       <Text
         style={{
           alignItems: 'center',
           color: theme.colors.white,
           fontSize: theme.fontSizes.ButtonText,
-        }}>
+        }}
+      >
         {props.title}
       </Text>
     </TouchableOpacity>

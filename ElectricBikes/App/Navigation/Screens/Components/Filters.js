@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {TouchableOpacity, View, StyleSheet} from 'react-native';
-import {Modal, Text, RadioButton} from 'react-native-paper';
+import { TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Modal, Text, RadioButton } from 'react-native-paper';
 import Slider from '@react-native-community/slider';
 
 import TextLabel from './TextLabel';
-// import {useTheme} from '../../../customHook/ThemeContext';
 import BottomButton from './BottomButton';
-import {getTheme} from '../../../Theme';
+import { getTheme } from '../../../Theme';
+import en from '../../../locales/en-US';
 
-const Filters = props => {
+const Filters = (props) => {
   const [visible, setVisible] = React.useState(false);
   const [frameVisible, setFrameVisible] = React.useState(false);
   const [price, setPrice] = React.useState(50);
@@ -18,7 +18,7 @@ const Filters = props => {
   const hideModal = () => setVisible(false);
   const showFrameModal = () => setFrameVisible(true);
   const hideFrameModal = () => setFrameVisible(false);
-  const containerStyle = {backgroundColor: 'white', padding: 20};
+  const containerStyle = { backgroundColor: 'white', padding: 20 };
   const newFilter = props.filters;
   if (newFilter.price != price) {
     setPrice(newFilter.price);
@@ -36,7 +36,7 @@ const Filters = props => {
       backgroundColor: '#ececec',
       borderColor: theme.colors.white,
     },
-    text: {textAlign: 'center'},
+    text: { textAlign: 'center' },
     filter: {
       margin: 5,
       flex: 1,
@@ -62,14 +62,15 @@ const Filters = props => {
     <>
       {props.showFilters && (
         <View style={styles.mainContainer}>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row' }}>
             <TouchableOpacity
               style={styles.filter}
               activeOpacity={0.85}
               onPress={() => {
                 showModal();
-              }}>
-              <TextLabel style={styles.text} text="Category" fontSize={20} />
+              }}
+            >
+              <TextLabel style={styles.text} text={en.Category} fontSize={20} />
               <TextLabel
                 style={styles.text}
                 text={newFilter.category.name}
@@ -81,8 +82,9 @@ const Filters = props => {
               activeOpacity={0.85}
               onPress={() => {
                 showFrameModal();
-              }}>
-              <TextLabel style={styles.text} text="Frame" fontSize={20} />
+              }}
+            >
+              <TextLabel style={styles.text} text={en.Frame} fontSize={20} />
               <TextLabel
                 style={styles.text}
                 text={newFilter.frame}
@@ -97,21 +99,22 @@ const Filters = props => {
               backgroundColor: 'white',
               padding: 10,
               borderRadius: 6,
-            }}>
+            }}
+          >
             <TextLabel
               style={styles.text}
-              text={`Price ${price}`}
+              text={`${en.Price} ${price}`}
               fontSize={20}
             />
             <Slider
               minimumValue={50}
               maximumValue={10000}
-              onValueChange={newValue => {
+              onValueChange={(newValue) => {
                 newFilter.price = newValue;
                 setPrice(newValue);
               }}
               minimumTrackTintColor={theme.colors.primary}
-              maximumTrackTintColor="#000000"
+              maximumTrackTintColor='#000000'
               value={price}
               step={10}
             />
@@ -120,46 +123,49 @@ const Filters = props => {
             style={{
               flexDirection: 'row',
               marginTop: 30,
-            }}>
+            }}
+          >
             <TouchableOpacity
               style={styles.buttonsContainer}
               activeOpacity={0.85}
               onPress={() => {
-                newFilter.category = {name: 'All', code: 'all'};
+                newFilter.category = { name: 'All', code: 'all' };
                 newFilter.frame = 'All';
                 newFilter.price = 10000;
                 props.onPress();
-              }}>
+              }}
+            >
               <TextLabel
                 style={styles.clearFilter}
-                text="Clear Filters"
+                text={en.ClearFilters}
                 fontSize={14}
               />
             </TouchableOpacity>
             <BottomButton
-              style={{flex: 1, marginLeft: 10, marginRight: 10}}
+              style={{ flex: 1, marginLeft: 10, marginRight: 10 }}
               onPress={() => {
                 props.onPress();
               }}
-              title="Apply Filters"
+              title={en.ApplyFilters}
             />
           </View>
 
           <Modal
             visible={visible}
             onDismiss={hideModal}
-            contentContainerStyle={containerStyle}>
+            contentContainerStyle={containerStyle}
+          >
             <View>
               <TextLabel
-                style={{alignSelf: 'center'}}
-                text="Categories"
+                style={{ alignSelf: 'center' }}
+                text={en.Categories}
                 fontSize={theme.fontSizes.BigPriceFont}
-                fontWeight="bold"
+                fontWeight='bold'
               />
               <RadioButton.Group
-                onValueChange={newValue => {
+                onValueChange={(newValue) => {
                   if (newValue === 'all') {
-                    newFilter.category = {code: 'all', name: 'All'};
+                    newFilter.category = { code: 'all', name: 'All' };
                   } else {
                     newFilter.category = {
                       code: newValue,
@@ -171,18 +177,52 @@ const Filters = props => {
                   }
                   hideModal();
                 }}
-                value={newFilter.category.code}>
+                value={newFilter.category.code}
+              >
                 <View style={styles.radioButton}>
-                  <RadioButton value="all" />
-                  <Text>All</Text>
+                  <RadioButton value='all' />
+                  <TouchableOpacity
+                    style={{ flex: 1 }}
+                    onPress={() => {
+                      newFilter.category = {
+                        code: 'all',
+                        name: 'All',
+                      };
+                      hideModal();
+                    }}
+                  >
+                    <Text>All</Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.radioButton}>
-                  <RadioButton value="mountainbike" />
-                  <Text>E Mountain Bikes</Text>
+                  <RadioButton value='mountainbike' />
+                  <TouchableOpacity
+                    style={{ flex: 1 }}
+                    onPress={() => {
+                      newFilter.category = {
+                        code: 'mountainbike',
+                        name: 'E Mountain Bikes',
+                      };
+                      hideModal();
+                    }}
+                  >
+                    <Text>E Mountain Bikes</Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.radioButton}>
-                  <RadioButton value="citybike" />
-                  <Text>E City Bikes</Text>
+                  <RadioButton value='citybike' />
+                  <TouchableOpacity
+                    style={{ flex: 1 }}
+                    onPress={() => {
+                      newFilter.category = {
+                        code: 'citybike',
+                        name: 'E City Bikes',
+                      };
+                      hideModal();
+                    }}
+                  >
+                    <Text>E City Bikes</Text>
+                  </TouchableOpacity>
                 </View>
               </RadioButton.Group>
             </View>
@@ -191,35 +231,69 @@ const Filters = props => {
           <Modal
             visible={frameVisible}
             onDismiss={hideFrameModal}
-            contentContainerStyle={containerStyle}>
+            contentContainerStyle={containerStyle}
+          >
             <View>
               <TextLabel
-                style={{alignSelf: 'center'}}
-                text="Frame Sizes"
+                style={{ alignSelf: 'center' }}
+                text={en.FrameSizes}
                 fontSize={theme.fontSizes.BigPriceFont}
-                fontWeight="bold"
+                fontWeight='bold'
               />
               <RadioButton.Group
-                onValueChange={newValue => {
+                onValueChange={(newValue) => {
                   newFilter.frame = newValue;
                   hideFrameModal();
                 }}
-                value={newFilter.frame}>
+                value={newFilter.frame}
+              >
                 <View style={styles.radioButton}>
-                  <RadioButton value="All" />
-                  <Text>All</Text>
+                  <RadioButton value='All' />
+                  <TouchableOpacity
+                    style={{ flex: 1 }}
+                    onPress={() => {
+                      newFilter.frame = 'All';
+                      hideFrameModal();
+                    }}
+                  >
+                    <Text>All</Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.radioButton}>
-                  <RadioButton value="48" />
-                  <Text>48</Text>
+                  <RadioButton value='48' />
+                  <TouchableOpacity
+                    style={{ flex: 1 }}
+                    onPress={() => {
+                      newFilter.frame = '48';
+                      hideFrameModal();
+                    }}
+                  >
+                    <Text>48</Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.radioButton}>
-                  <RadioButton value="52" />
-                  <Text>52</Text>
+                  <RadioButton value='52' />
+                  <TouchableOpacity
+                    style={{ flex: 1 }}
+                    onPress={() => {
+                      newFilter.frame = '52';
+                      hideFrameModal();
+                    }}
+                  >
+                    <Text>52</Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.radioButton}>
-                  <RadioButton value="54" />
-                  <Text>54</Text>
+                  <RadioButton value='54' />
+                  <TouchableOpacity
+                    style={{ flex: 1 }}
+                    onPress={() => {
+                      newFilter.frame = '54';
+                      hideFrameModal();
+                    }}
+                  >
+                    <Text>54</Text>
+                  </TouchableOpacity>
                 </View>
               </RadioButton.Group>
             </View>

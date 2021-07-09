@@ -1,21 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState, useEffect} from 'react';
-import {FlatList, View} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { FlatList, View } from 'react-native';
 import SearchCarItem from './Components/SearchCarItem';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import AppBarWithMenu from './Components/AppBarWithMenu';
 
-import {getBikes} from '../../Services/API/AssetManagement';
+import { getBikes } from '../../Services/API/AssetManagement';
 import Filters from './Components/Filters';
 import ActivityIndicatorView from './Components/ActivityIndicatorView';
-import {getTheme} from '../../Theme';
+import { getTheme } from '../../Theme';
+import en from '../../locales/en-US';
 
 export default function SearchList() {
   const [assets, setAssets] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
   const [activityIndicator, setActivityIndicator] = useState(false);
   const [filters, setFilters] = useState({
-    category: {name: 'All', code: 'all'},
+    category: { name: 'All', code: 'all' },
     frame: 'All',
     price: 10000,
   });
@@ -26,7 +27,7 @@ export default function SearchList() {
   const getBikesList = () => {
     setActivityIndicator(true);
     getBikes(filters.category.code)
-      .then(response => {
+      .then((response) => {
         /* 
         These Filters should be done on Server side, due to the server 
         or APIs are not provided in the Test so we are unable to do that. 
@@ -38,23 +39,23 @@ export default function SearchList() {
           setAssets(response);
         } else if (filters.frame === 'All') {
           const filteredAssets = response.filter(
-            asset => asset.price <= filters.price,
+            (asset) => asset.price <= filters.price
           );
           setAssets(filteredAssets);
         } else {
           const filteredAssets = response.filter(
-            asset =>
+            (asset) =>
               String(asset.frameSize) === filters.frame &&
-              asset.price <= filters.price,
+              asset.price <= filters.price
           );
           setAssets(filteredAssets);
         }
         setActivityIndicator(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log('Error', error);
         setActivityIndicator(false);
-    });
+      });
   };
 
   useEffect(() => {
@@ -63,11 +64,11 @@ export default function SearchList() {
 
   return (
     <View>
-      <StatusBar style='light'/>
+      <StatusBar style='light' />
       <ActivityIndicatorView showIndicator={activityIndicator} />
       <AppBarWithMenu
-        title="Ebike"
-        subtitle="The Future of mobility"
+        title={en.MainScreenTitle}
+        subtitle={en.MainScreenSubTitle}
         onActionPress={() => {
           setShowFilters(!showFilters);
         }}
@@ -85,12 +86,12 @@ export default function SearchList() {
           margin: theme.margins.ListMargin,
         }}
         data={assets}
-        keyExtractor={item => item._id}
-        renderItem={asset => (
+        keyExtractor={(item) => item._id}
+        renderItem={(asset) => (
           <SearchCarItem
             asset={asset.item}
-            onPress={asset => {
-              navigation.navigate('Details', {...asset});
+            onPress={(asset) => {
+              navigation.navigate('Details', { ...asset });
             }}
           />
         )}
