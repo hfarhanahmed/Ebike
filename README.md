@@ -46,8 +46,10 @@ yarn clean:all
 # Deep Clean for whole project
 yarn deepclean
 
+````bash
 ## Generating standalone applications
-You need to have expo account to generate apk or ipa file (https://docs.expo.io/distribution/building-standalone-apps/)
+You need to have expo account to generate apk or ipa file [**URL**](https://docs.expo.io/distribution/building-standalone-apps/)
+````bash
 
 # Generate APK for Android
 expo build:android -t apk
