@@ -59,6 +59,10 @@ expo build:android -t apk
 # Generate IPA for IOS
 expo build:ios -t simulator
 
+````
+
+# Project Structure
+````bash
 # Project Structure
 |-- EelectricBikes
     |-- README.md
