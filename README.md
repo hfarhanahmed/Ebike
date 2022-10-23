@@ -1,6 +1,8 @@
 # Introduction
 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
+My first React Native project consists of 2 screens
+1)  Simple list view
+2)  Details page.
 
 ### Before you start
 
